@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/progress_time/db" VERSION="20210713" COMMENT="XMLDB file for block progress time"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="progress_time_progress" COMMENT="Stores the progress of a users on a course.">
+            <FIELDS>
+                <FIELD NAME="id" SEQUENCE="true" TYPE="int" LENGTH="10" NOTNULL="true" />
+                <FIELD NAME="courseid" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" />
+                <FIELD NAME="userid" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" />
+                <FIELD NAME="progress" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" />
+                <FIELD NAME="timecreated" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+                <FIELD NAME="timemodified" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+                <KEY NAME="fk_courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id" />
+                <KEY NAME="fk_userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id" />
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
