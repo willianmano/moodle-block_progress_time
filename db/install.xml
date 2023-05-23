@@ -4,6 +4,19 @@
        xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
     <TABLES>
+        <TABLE NAME="progress_time_modules" COMMENT="Stores the module hours.">
+            <FIELDS>
+                <FIELD NAME="id" SEQUENCE="true" TYPE="int" LENGTH="10" NOTNULL="true" />
+                <FIELD NAME="cmid" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" />
+                <FIELD NAME="value" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" />
+                <FIELD NAME="timecreated" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+                <FIELD NAME="timemodified" SEQUENCE="false" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+                <KEY NAME="fk_cmid" TYPE="foreign" FIELDS="cmid" REFTABLE="course_modules" REFFIELDS="id" />
+            </KEYS>
+        </TABLE>
         <TABLE NAME="progress_time_progress" COMMENT="Stores the progress of a users on a course.">
             <FIELDS>
                 <FIELD NAME="id" SEQUENCE="true" TYPE="int" LENGTH="10" NOTNULL="true" />
