@@ -25,7 +25,7 @@ class block_progress_time extends block_base {
 
         $renderer = $this->page->get_renderer('block_progress_time');
 
-        $contentrenderable = new \block_progress_time\output\block($this->page->course);
+        $contentrenderable = new \block_progress_time\output\block($this->page->course, $this->context);
 
         $this->content->text = $renderer->render($contentrenderable);
 
