@@ -1,7 +1,5 @@
 <?php
 
-use stdClass;
-
 class block_progress_time extends block_base {
     public function init() {
         $this->title = get_string('pluginname', 'block_progress_time');
@@ -21,7 +19,7 @@ class block_progress_time extends block_base {
             return $this->content;
         }
 
-        $this->content = new stdClass();
+        $this->content = new \stdClass();
 
         $renderer = $this->page->get_renderer('block_progress_time');
 

@@ -2,6 +2,7 @@
 
 namespace block_progress_time\output;
 
+use block_progress_time\util\progress;
 use renderable;
 use renderer_base;
 use templatable;
@@ -17,10 +18,14 @@ class block implements renderable, templatable {
     }
 
     public function export_for_template(renderer_base $output) {
-        $completion = (int)(\core_completion\progress::get_course_progress_percentage($this->course));
+        global $USER;
+
+        $util = new progress($this->course->id, $USER->id);
+
+        $progress = $util->get_user_course_progress();
 
         return [
-            'progress' => $completion,
+            'progress' => $progress,
             'canviewreport' => has_capability('moodle/course:update', $this->context)
         ];
     }
