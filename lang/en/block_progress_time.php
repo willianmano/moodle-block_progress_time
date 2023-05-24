@@ -8,3 +8,4 @@ $string['progress_time:viewreport'] = 'Permissão de ver o relatório';
 $string['progresstimeformheader'] = 'Configurações de carga horária';
 $string['activityhours'] = 'Horas da atividade';
 $string['activityhours_help'] = 'Este campo permite configurar a carga horária desta atividade.';
+$string['viewreport'] = 'Ver relatório';

@@ -25,6 +25,7 @@ class block implements renderable, templatable {
         $progress = $util->get_user_course_progress();
 
         return [
+            'courseid' => $this->course->id,
             'progress' => $progress,
             'canviewreport' => has_capability('moodle/course:update', $this->context)
         ];
